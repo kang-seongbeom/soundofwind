@@ -12,3 +12,25 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wind?serverTimezone=Asia/Seoul
+    username: user
+    password: 1234
+
+  jpa:
+    open-in-view: true  #lazy 로딩이 가능하게 함. https://www.youtube.com/watch?v=fSXh4hWJtKo&list=PL93mKxaRDidECgjOBjPgI3Dyo8ka6Ilqm&index=45 참고
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false  #jpa의 기본 넘버링 전략을 사용하지 않음(DB 테이블의 넘버링 방식을 따라감)
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
