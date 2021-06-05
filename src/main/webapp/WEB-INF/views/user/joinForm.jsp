@@ -33,6 +33,6 @@
 </form>
 <button id="btn_save">회원가입</button>
 </body>
-<script src="/js/user.js"></script>
+<script src="/js/user/user.js"></script>
 </html>
 
