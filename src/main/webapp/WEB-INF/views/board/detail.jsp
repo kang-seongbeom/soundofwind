@@ -1,4 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"
 %>
@@ -26,6 +27,11 @@
         <h1>Title :<span id="title">${board.title}</span></h1>
         <h4>content :<span id="content">${board.content}</span></h4>
     </div>
+
+    <c:if test="${board.user.id == principal.user.id}">
+        <a href="/board/${board.id}/updateForm" style="color: blueviolet">수정</a>
+        <button id="btn_delete" style="color: red">삭제</button>
+    </c:if>
 
     <form>
         <input id="userId" type="hidden" value="${principal.user.id}"></form>

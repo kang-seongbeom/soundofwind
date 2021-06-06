@@ -36,6 +36,13 @@ public class BoardApiController {
         return new ResponseDto<Integer>(HttpStatus.OK.value());
     }
 
+    //게시글 삭제
+    @DeleteMapping("/api/board/{id}")
+    public ResponseDto<Integer> delete(@PathVariable Integer id){
+        boardService.deleteBoard(id);
+        return new ResponseDto<Integer>(HttpStatus.OK.value());
+    }
+
     //댓글 작성
     @PostMapping("/api/board/{boardId}/reply")
     public ResponseDto<Integer> writeReply(@RequestBody RequestReplySaveDto replySaveRequestDto){

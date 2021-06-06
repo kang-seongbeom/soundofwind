@@ -7,6 +7,9 @@ let index = {
         $("#btn_update").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
             this.updateBoard();
         });
+        $("#btn_delete").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
+            this.deleteBoard();
+        });
         $("#btn_reply_save").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
             this.replySave();
         });
@@ -53,6 +56,20 @@ let index = {
             location.href="/"
         }).fail(function (error){
             alert("글수정 실패"+JSON.stringify(error));
+        });
+    },
+
+    deleteBoard: function () {
+        let id=document.getElementById('id').innerText;
+        $.ajax({
+            type: "DELETE",
+            url: "/api/board/"+id,
+            dataType: "json"
+        }).done(function(resp){
+            alert("게시글 삭제 완료");
+            location.href="/"
+        }).fail(function (error){
+            alert("게시글 삭제 실패"+JSON.stringify(error));
         });
     },
 
