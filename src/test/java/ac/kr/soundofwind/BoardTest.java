@@ -3,7 +3,7 @@ package ac.kr.soundofwind;
 import ac.kr.soundofwind.config.auth.PrincipalDetailService;
 import ac.kr.soundofwind.controller.api.UserApiController;
 import ac.kr.soundofwind.model.Board;
-import ac.kr.soundofwind.model.User;
+import ac.kr.soundofwind.model.Reply;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(UserApiController.class)
@@ -24,6 +25,14 @@ public class BoardTest {
 
     @MockBean
     private PrincipalDetailService principalDetailService;
+
+    @DisplayName("게시판 보기 테스트")
+    @org.junit.jupiter.api.Test
+    public void boardView() throws Exception {
+        Integer boardId = 1;
+        this.mockMvc.perform(get("/board/" + boardId))
+                .andExpect(status().isOk());
+    }
 
     @DisplayName("게시판 생성 테스트")
     @org.junit.jupiter.api.Test
@@ -43,4 +52,25 @@ public class BoardTest {
                 .andReturn();
 
     }
+
+
+    @DisplayName("댓글 작성 테스트")
+    @org.junit.jupiter.api.Test
+    public void replyInsert() throws Exception {
+        Integer boardId = 1;
+        String content = "content";
+
+        Reply reply = Reply.builder().content(content).build();
+        Gson gson = new Gson();
+        String json = gson.toJson(reply);
+
+        MvcResult result = this.mockMvc.perform(
+                post("/api/board/"+boardId+"/reply")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk())
+                .andReturn();
+
+    }
+
 }

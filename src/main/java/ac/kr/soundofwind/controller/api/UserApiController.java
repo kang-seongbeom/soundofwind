@@ -17,12 +17,7 @@ public class UserApiController {
 
     @PostMapping("/auth/joinApi")
     public ResponseDto<Integer> join(@RequestBody User user){
-        User joinUser = userService.signUp(user);
-
-        if(joinUser != null)
-            return new ResponseDto<Integer>(HttpStatus.OK.value());
-        else
-            return new ResponseDto<Integer>(HttpStatus.BAD_REQUEST.value());
-
+        userService.signUp(user);
+        return new ResponseDto<Integer>(HttpStatus.OK.value());
     }
 }
