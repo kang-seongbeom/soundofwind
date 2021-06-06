@@ -13,8 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(UserApiController.class)
@@ -51,6 +50,25 @@ public class BoardTest {
                 .andExpect(status().isOk())
                 .andReturn();
 
+    }
+
+    @DisplayName("게시판 수정 테스트")
+    @org.junit.jupiter.api.Test
+    public void boardUpdate() throws Exception {
+        Integer boardId = 1;
+        String title = "title";
+        String content = "content";
+
+        Board board = Board.builder().title(title).content(content).build();
+        Gson gson = new Gson();
+        String json = gson.toJson(board);
+
+        MvcResult result = this.mockMvc.perform(
+                put("/api/board/"+boardId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk())
+                .andReturn();
     }
 
 

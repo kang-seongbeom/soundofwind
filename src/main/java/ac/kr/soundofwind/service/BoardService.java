@@ -44,4 +44,11 @@ public class BoardService {
         replyRepository.saveReply(replySaveRequestDto.getUserId(),
                 replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
     }
+
+    //uodate를 하려면 영속화를 시켜야함
+    @org.springframework.transaction.annotation.Transactional
+    public void updateBoard(Integer id, Board board){
+        System.out.println("----------"+id+"/"+board);
+        boardRepository.update(board.getTitle(), board.getContent(), id);
+    }
 }

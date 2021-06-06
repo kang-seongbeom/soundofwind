@@ -4,9 +4,13 @@ let index = {
         $("#btn_save").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
             this.save();
         });
+        $("#btn_update").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
+            this.updateBoard();
+        });
         $("#btn_reply_save").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
             this.replySave();
         });
+
     },
 
     save: function () {
@@ -27,6 +31,28 @@ let index = {
             location.href="/"
         }).fail(function (error){
             alert("글쓰기 실패"+JSON.stringify(error));
+        });
+    },
+
+    updateBoard : function (){
+        let id=document.getElementById('id').value;
+
+        let data={
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value,
+        };
+
+        $.ajax({
+            type: "PUT",
+            url: "/api/board/"+id,
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function(resp){
+            alert("글수정 완료");
+            location.href="/"
+        }).fail(function (error){
+            alert("글수정 실패"+JSON.stringify(error));
         });
     },
 
