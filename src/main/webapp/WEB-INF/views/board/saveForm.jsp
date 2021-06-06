@@ -14,25 +14,18 @@
 </head>
 <body>
 <form>
-    <!--userName-->
     <div>
-        <label for="username">userName:</label>
-        <input type="text" placeholder="Enter userName" id="username">
-    </div>
-    <!--password-->
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" placeholder="Enter password" id="password">
-    </div>
-    <!--email-->
-    <div>
-        <label for="email">Email address:</label>
-        <input type="email" placeholder="Enter email" id="email">
+        <label for="title">Title</label>
+        <input type="text" placeholder="Enter title" id="title">
     </div>
 
+    <div>
+        <label for="content">Content</label>
+        <textarea rows="5" id="content"></textarea>
+    </div>
 </form>
-<button id="btn_save">회원가입</button>
-</body>
-<script src="/js/user.js"></script>
-</html>
 
+<button id="btn_save">저장</button>
+</body>
+<script src="/js/board.js?ver=1"></script>
+</html>

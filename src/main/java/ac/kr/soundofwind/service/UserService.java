@@ -21,7 +21,6 @@ public class UserService {
 
     @Transactional
     public User signUp(User user) {
-        System.out.println("----------"+user+"----------");
         String rawPassword=user.getPassword(); //입력한 password
         String encPassword=encoder.encode(rawPassword); //해싱한 password
         user.setPassword(encPassword);

@@ -13,6 +13,7 @@
 <body>
     <a class="nav-link" href="/auth/login">로그인</a>
     <a class="nav-link" href="/auth/join">회원가입</a>
+    <a class="nav-link" href="/board/saveForm">게시판 작성</a>
 </body>
 </html>
 

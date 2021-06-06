@@ -1,12 +1,14 @@
 package ac.kr.soundofwind.config.auth;
 
 import ac.kr.soundofwind.model.User;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Data
 public class PrincipalDetail implements UserDetails {
 
     private final User user;
