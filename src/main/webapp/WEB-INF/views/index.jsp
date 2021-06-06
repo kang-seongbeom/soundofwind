@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html lang="en">
@@ -14,6 +15,14 @@
     <a class="nav-link" href="/auth/login">로그인</a>
     <a class="nav-link" href="/auth/join">회원가입</a>
     <a class="nav-link" href="/board/saveForm">게시판 작성</a>
+
+    <c:forEach var="board" items="${boards.content}">  <!--boards는 BoardController의 setAttribute에서 정의-->
+            <div>
+                <h4>${board.title}</h4> <!--board의 gettile이 되어 DB의 정보를 가져옴-->
+                <a href="/board/details/${board.id}">상세보기</a>
+            </div>
+    </c:forEach>
+
 </body>
 </html>
 

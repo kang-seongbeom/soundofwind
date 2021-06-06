@@ -51,7 +51,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
     implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.5.0'
 
-    //jsp에서 조건문을 사용하기 위한 라잉브러리
+    //jsp에서 조건문을 사용하기 위한 라이브러리
     // https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl
     implementation group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
 

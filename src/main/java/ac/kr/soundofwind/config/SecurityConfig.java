@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http
                 .csrf().disable()
                     .authorizeRequests()
-                    .antMatchers("/","/auth/**","/js/**","/css/**","/image/**","/http/**")
+                    .antMatchers("/","/board/details/**","/auth/**","/js/**","/css/**","/image/**","/http/**")
                     .permitAll()
                     .anyRequest()
                     .authenticated()
@@ -48,7 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .formLogin()
                     .loginPage("/auth/loginForm")
                     .loginProcessingUrl("/auth/loginApi") //security가 해당 주고로 요청오는 로그인을 가로채서 대신함
-                    .defaultSuccessUrl("/");
+                    .defaultSuccessUrl("/")
+                    .failureUrl("/auth/loginForm");
 
     }
 

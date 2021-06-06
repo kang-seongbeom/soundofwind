@@ -25,9 +25,16 @@ public class BoardTest {
     @MockBean
     private PrincipalDetailService principalDetailService;
 
-    @DisplayName("게시판 보기 테스트")
+    @DisplayName("게시판 전체 보기 테스트")
     @org.junit.jupiter.api.Test
     public void boardView() throws Exception {
+        this.mockMvc.perform(get("/"))
+                .andExpect(status().isOk());
+    }
+
+    @DisplayName("게시판 상세 보기 테스트")
+    @org.junit.jupiter.api.Test
+    public void boardDetail() throws Exception {
         Integer boardId = 1;
         this.mockMvc.perform(get("/board/" + boardId))
                 .andExpect(status().isOk());
