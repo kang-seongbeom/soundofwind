@@ -49,10 +49,13 @@ public class BoardService {
 
     //댓글 작성
     @Transactional
-    public void writReplyeApi(RequestReplySaveDto replySaveRequestDto) {
+    public void writeReplyeApi(RequestReplySaveDto replySaveRequestDto) {
         replyRepository.saveReply(replySaveRequestDto.getUserId(),
                 replySaveRequestDto.getBoardId(), replySaveRequestDto.getContent());
     }
 
-
+    @Transactional
+    public void deleteReply(Integer replyId) {
+        replyRepository.deleteById(replyId);
+    }
 }

@@ -33,6 +33,21 @@
         <button id="btn_delete" style="color: red">삭제</button>
     </c:if>
 
+    <div>댓글리스트</div>
+    <ul id="reply_box">
+        <c:forEach var="reply" items="${board.replys}">
+            <li id="reply_${reply.id}">
+                <div>${reply.content}</div>
+                <div>
+                    <div>작성자:${reply.user.username} &nbsp;</div>
+                    <c:if test="${board.user.id == principal.user.id}">
+                        <button onclick="index.replyDelete(${board.id},${reply.id})">삭제</button>
+                    </c:if>
+                </div>
+            </li>
+        </c:forEach>
+    </ul>
+
     <form>
         <input id="userId" type="hidden" value="${principal.user.id}"></form>
         <input id="boardId" type="hidden" value="${board.id}">

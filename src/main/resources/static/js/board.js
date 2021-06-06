@@ -94,6 +94,19 @@ let index = {
         }).fail(function (error){
             alert("댓글작성 실패"+JSON.stringify(error));
         });
+    },
+
+    replyDelete: function (boardId,replyId) {
+        $.ajax({
+            type: "DELETE",
+            url: `/api/board/${boardId}/reply/${replyId}`,
+            dataType: "json"
+        }).done(function(resp){ //파라미터 resp값은 자바 오브젝트임. json아님
+            alert("댓글삭제 완료");
+            location.href=`/board/${boardId}`;
+        }).fail(function (error){
+            alert("댓글삭제 실패"+JSON.stringify(error));
+        });
     }
 }
 

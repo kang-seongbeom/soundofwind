@@ -102,4 +102,16 @@ public class BoardTest {
 
     }
 
+    @DisplayName("댓글 삭제 테스트")
+    @org.junit.jupiter.api.Test
+    public void replyDelete() throws Exception {
+        Integer boardId = 1;
+        Integer replyId = 1;
+
+        MvcResult result = this.mockMvc.perform(
+                delete("/api/board/"+boardId+"reply"+replyId))
+                .andExpect(status().isOk())
+                .andReturn();
+    }
+
 }
