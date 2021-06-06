@@ -23,6 +23,28 @@
             </div>
     </c:forEach>
 
+    <ul class="pagination">
+        <!--첫 번째 페이지 일때-->
+        <c:choose>
+            <c:when test="${boards.first}">
+                <li class="page-item disabled"><a class="page-link" href="?page=${boards.number-1}">Previous</a></li>
+            </c:when>
+            <c:otherwise>
+                <li class="page-item"><a class="page-link" href="?page=${boards.number-1}">Previous</a></li>
+            </c:otherwise>
+        </c:choose>
+
+        <!--마지막 페이지 일때-->
+        <c:choose>
+            <c:when test="${boards.last}">
+                <li class="page-item disabled"><a class="page-link" href="?page=${boards.number+1}">Next</a></li>
+            </c:when>
+            <c:otherwise>
+                <li class="page-item"><a class="page-link" href="?page=${boards.number+1}">Next</a></li>
+            </c:otherwise>
+        </c:choose>
+    </ul>
+
 </body>
 </html>
 
