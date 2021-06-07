@@ -1,24 +1,6 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@page language="java" contentType="text/html; charset=UTF-8"
-        pageEncoding="UTF-8"
-%>
 
-<sec:authorize access="isAuthenticated()">
-    <sec:authentication property="principal" var="principal"/>
-</sec:authorize>
+<%@ include file="../layout/header.jsp" %>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Document</title>
-</head>
-<body>
     <div>
         글번호:<span id="id">${board.id}</span>
         작성자:<span id="write_user">${board.user.username}</span>
@@ -60,6 +42,6 @@
         </div>
     </form>
 
-</body>
 <script src="/js/board.js"></script>
-</html>
+
+<%@ include file="../layout/footer.jsp" %>

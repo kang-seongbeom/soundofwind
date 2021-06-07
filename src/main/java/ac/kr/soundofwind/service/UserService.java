@@ -27,4 +27,11 @@ public class UserService {
         user.setRole(RoleType.USER); //db의 정보 중 role만 자동적으로 입력이 되지 않기 때문에 넣어줘야 함.
         userRepository.save(user);
     }
+
+    @Transactional
+    public void updateApi(User user) {
+        String rawPassword = user.getPassword();
+        String encPassword = encoder.encode(rawPassword);
+        userRepository.updateUser(user.getEmail(), encPassword, user.getId());
+    }
 }

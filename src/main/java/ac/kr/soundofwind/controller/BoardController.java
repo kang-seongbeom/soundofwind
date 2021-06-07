@@ -30,16 +30,16 @@ public class BoardController {
     }
 
     //게시글 작성
-    @GetMapping({"/board/saveForm"})
+    @GetMapping({"/board/save"})
     public String saveForm(){
         return "board/saveForm";
     }
 
     //게시글 수정
-    @GetMapping("/board/{id}/updateForm")
+    @GetMapping("/board/{id}/update")
     public String updateForm(@PathVariable Integer id, Model model){
         model.addAttribute("board", boardService.showDetails(id));
-        return "/board/updateForm";
+        return "/board/updateForm.jsp";
     }
 
 }

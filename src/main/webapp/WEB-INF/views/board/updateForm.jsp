@@ -2,17 +2,8 @@
         pageEncoding="UTF-8"
 %>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Document</title>
-</head>
-<body>
+<%@ include file="../layout/header.jsp" %>
+
 <form>
     <input type="hidden" id="id" value="${board.id}">
     <div>
@@ -27,6 +18,6 @@
 </form>
 
 <button id="btn_update">수정하기</button>
-</body>
 <script src="/js/board.js?ver=1"></script>
-</html>
+
+<%@ include file="../layout/footer.jsp" %>
