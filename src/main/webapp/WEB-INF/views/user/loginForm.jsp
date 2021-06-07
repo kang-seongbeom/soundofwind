@@ -6,7 +6,7 @@
 <form action="/auth/loginApi" method="post">
     <!--userName-->
     <div>
-        <label for="username">userName:</label>
+        <label for="username">username:</label>
         <input type="text" name="username" class="form-control" placeholder="Enter username" id="username">
     </div>
 

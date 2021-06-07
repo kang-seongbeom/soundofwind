@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<nav>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a href="/">바람소리</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/auth/join">회원가입</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/board/details">게시판</a>
+                    </li>
                 </ul>
             </c:when>
 
@@ -45,6 +48,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/update">회원정보</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/board/details">게시판</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">로그아웃</a>

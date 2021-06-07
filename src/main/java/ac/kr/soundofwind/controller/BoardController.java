@@ -22,6 +22,12 @@ public class BoardController {
         return "index";
     }
 
+    @GetMapping("/board/details")
+    public String board(Model model, @PageableDefault(size = 3,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("boards", boardService.allBoards(pageable));
+        return "/board/boards";
+    }
+
     //게시글 상세 보기
     @GetMapping("/board/details/{id}")
     public String detail(@PathVariable Integer id, Model model){
