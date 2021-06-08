@@ -20,7 +20,6 @@ public class WikiApiController {
     @PostMapping("/api/manager/wiki")
     public ResponseDto<Integer> wikiSave(@RequestBody Wiki wiki,
                                           @AuthenticationPrincipal PrincipalDetail principalDetail){
-
         wikiService.writeApi(wiki,principalDetail.getUser());
         return new ResponseDto<Integer>(HttpStatus.OK.value());
 
@@ -30,6 +29,13 @@ public class WikiApiController {
     @PutMapping("/api/manager/wiki/{id}")
     public ResponseDto<Integer> update(@PathVariable Integer id, @RequestBody Wiki wiki){
         wikiService.updateWiki(id, wiki);
+        return new ResponseDto<Integer>(HttpStatus.OK.value());
+    }
+
+    //게시글 삭제
+    @DeleteMapping("/api/board/{id}")
+    public ResponseDto<Integer> delete(@PathVariable Integer id){
+        wikiService.deleteWiki(id);
         return new ResponseDto<Integer>(HttpStatus.OK.value());
     }
 }

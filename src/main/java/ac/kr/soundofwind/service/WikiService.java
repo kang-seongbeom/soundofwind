@@ -34,4 +34,9 @@ public class WikiService {
     public void updateWiki(Integer id, Wiki wiki){
         wikiRepository.update(wiki.getTitle(), wiki.getContent(), id);
     }
+
+    @Transactional
+    public void deleteWiki(Integer id) {
+        wikiRepository.deleteById(id);
+    }
 }
