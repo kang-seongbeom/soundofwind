@@ -29,4 +29,9 @@ public class WikiService {
         wiki.setUser(user);
         wikiRepository.save(wiki);
     }
+
+    @Transactional
+    public void updateWiki(Integer id, Wiki wiki){
+        wikiRepository.update(wiki.getTitle(), wiki.getContent(), id);
+    }
 }

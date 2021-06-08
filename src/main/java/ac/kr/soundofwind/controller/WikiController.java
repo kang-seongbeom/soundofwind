@@ -31,4 +31,11 @@ public class WikiController {
         return "/wiki/saveForm";
     }
 
+    //게시글 수정
+    @GetMapping("/manager/wiki/{id}/update")
+    public String updateForm(@PathVariable Integer id, Model model){
+        model.addAttribute("wiki", wikiService.showDetails(id));
+        return "/wiki/updateForm";
+    }
+
 }
