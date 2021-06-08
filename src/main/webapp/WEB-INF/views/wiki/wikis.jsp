@@ -1,16 +1,19 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"
+%>
 <%@ include file="../layout/header.jsp" %>
 
-<c:forEach var="wiki" items="${wikis.content}">  <!--boards는 BoardController의 setAttribute에서 정의-->
+<c:forEach var="wiki" items="${wikis.content}">
     <div>
-        <h4>${wikis.title}</h4> <!--board의 gettile이 되어 DB의 정보를 가져옴-->
-        <a href="/wiki/details/${wikis.id}">상세보기</a>
+        <h4>${wiki.title}</h4>
+        <a href="/wiki/details/${wiki.id}">상세보기</a>
     </div>
 </c:forEach>
 
 <ul class="pagination">
     <!--첫 번째 페이지 일때-->
     <c:choose>
-        <c:when test="${boards.first}">
+        <c:when test="${wikis.first}">
             <li class="page-item disabled"><a class="page-link" href="?page=${wikis.number-1}">Previous</a></li>
         </c:when>
         <c:otherwise>

@@ -11,7 +11,7 @@
     </div>
 
     <c:if test="${board.user.id == principal.user.id}">
-        <a href="/board/${board.id}/updateForm" style="color: blueviolet">수정</a>
+        <a href="/board/${board.id}/update" style="color: blueviolet">수정</a>
         <button id="btn_delete" style="color: red">삭제</button>
     </c:if>
 

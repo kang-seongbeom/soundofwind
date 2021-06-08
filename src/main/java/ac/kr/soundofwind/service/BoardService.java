@@ -22,6 +22,11 @@ public class BoardService {
     @Autowired
     private ReplyRepository replyRepository;
 
+    @Transactional
+    public Page<Board> allBoards(Pageable pageable) {
+        return boardRepository.findAll(pageable);
+    }
+
     //게시글 보기
     @Transactional
     public Board showDetails(Integer id) {
@@ -59,7 +64,4 @@ public class BoardService {
         replyRepository.deleteById(replyId);
     }
 
-    public Page<Board> allBoards(Pageable pageable) {
-        return boardRepository.findAll(pageable);
-    }
 }

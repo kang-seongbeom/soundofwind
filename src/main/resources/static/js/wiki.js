@@ -7,6 +7,9 @@ let index = {
         $("#btn_update").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
             this.updateWiki();
         });
+        $("#btn_delete").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
+            this.deleteWiki();
+        });
     },
 
 
@@ -50,6 +53,20 @@ let index = {
             location.href="/"
         }).fail(function (error){
             alert("wiki 수정 실패"+JSON.stringify(error));
+        });
+    },
+
+    deleteWiki: function () {
+        let id=document.getElementById('id').innerText;
+        $.ajax({
+            type: "DELETE",
+            url: "/api/manger/wiki/"+id,
+            dataType: "json"
+        }).done(function(resp){
+            alert("wiki 삭제 완료");
+            location.href="/"
+        }).fail(function (error){
+            alert("wiki 삭제 실패"+JSON.stringify(error));
         });
     },
 }

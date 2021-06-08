@@ -1,4 +1,6 @@
-
+<%@page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"
+%>
 <%@ include file="../layout/header.jsp" %>
 
     <div>
@@ -11,24 +13,9 @@
     </div>
 
     <c:if test="${wiki.user.id == principal.user.id}">
-        <a href="/board/${wiki.id}/updateForm" style="color: blueviolet">수정</a>
+        <a href="/manager/wiki/${wiki.id}/update" style="color: blueviolet">수정</a>
         <button id="btn_delete" style="color: red">삭제</button>
     </c:if>
-
-    <div>댓글리스트</div>
-    <ul id="reply_box">
-        <c:forEach var="reply" items="${wiki.replys}">
-            <li id="reply_${reply.id}">
-                <div>${reply.content}</div>
-                <div>
-                    <div>작성자:${reply.user.username} &nbsp;</div>
-                    <c:if test="${wiki.user.id == principal.user.id}">
-                        <button onclick="index.replyDelete(${wiki.id},${reply.id})">삭제</button>
-                    </c:if>
-                </div>
-            </li>
-        </c:forEach>
-    </ul>
 
     <form>
         <input id="userId" type="hidden" value="${principal.user.id}"></form>

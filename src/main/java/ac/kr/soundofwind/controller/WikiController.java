@@ -3,6 +3,9 @@ package ac.kr.soundofwind.controller;
 
 import ac.kr.soundofwind.service.WikiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +18,9 @@ public class WikiController {
     private WikiService wikiService;
 
     @GetMapping("/wiki/details")
-    public String board(){
-        return "/wiki/detail";
+    public String board(Model model, @PageableDefault(size = 3,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("wikis", wikiService.allWikis(pageable));
+        return "/wiki/wikis";
     }
 
     @GetMapping("/wiki/details/{id}")
@@ -25,13 +29,13 @@ public class WikiController {
         return "/wiki/detail";
     }
 
-    //게시글 작성
+    //wiki 작성
     @GetMapping({"/manager/wiki/save"})
     public String saveForm(){
         return "/wiki/saveForm";
     }
 
-    //게시글 수정
+    //wiki 수정
     @GetMapping("/manager/wiki/{id}/update")
     public String updateForm(@PathVariable Integer id, Model model){
         model.addAttribute("wiki", wikiService.showDetails(id));

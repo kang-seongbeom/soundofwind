@@ -6,6 +6,8 @@ import ac.kr.soundofwind.domain.User;
 import ac.kr.soundofwind.domain.Wiki;
 import ac.kr.soundofwind.repository.WikiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,6 +17,11 @@ public class WikiService {
 
     @Autowired
     private WikiRepository wikiRepository;
+
+    @Transactional
+    public Page<Wiki> allWikis(Pageable pageable) {
+        return wikiRepository.findAll(pageable);
+    }
 
     @Transactional
     public Wiki showDetails(Integer id) {

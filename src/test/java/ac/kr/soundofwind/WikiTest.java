@@ -60,9 +60,20 @@ public class WikiTest {
         String json = gson.toJson(wiki);
 
         MvcResult result = this.mockMvc.perform(
-                put("/api/board/"+wikiId)
+                put("/api/manager/wiki/"+wikiId)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
+                .andExpect(status().isOk())
+                .andReturn();
+    }
+
+    @DisplayName("wiki 삭제 테스트")
+    @org.junit.jupiter.api.Test
+    public void boardDelete() throws Exception {
+        Integer wikiId = 1;
+
+        MvcResult result = this.mockMvc.perform(
+                delete("/api/manager/wiki/"+wikiId))
                 .andExpect(status().isOk())
                 .andReturn();
     }
