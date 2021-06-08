@@ -2,21 +2,16 @@ package ac.kr.soundofwind;
 
 import ac.kr.soundofwind.config.auth.PrincipalDetailService;
 import ac.kr.soundofwind.controller.api.UserApiController;
-import ac.kr.soundofwind.model.Board;
-import ac.kr.soundofwind.model.User;
+import ac.kr.soundofwind.domain.User;
 import com.google.gson.Gson;
-import org.junit.Before;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

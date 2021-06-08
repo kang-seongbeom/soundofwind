@@ -1,8 +1,8 @@
 package ac.kr.soundofwind.service;
 
 
-import ac.kr.soundofwind.model.RoleType;
-import ac.kr.soundofwind.model.User;
+import ac.kr.soundofwind.domain.RoleType;
+import ac.kr.soundofwind.domain.User;
 import ac.kr.soundofwind.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -1,11 +1,9 @@
 package ac.kr.soundofwind.repository;
 
-import ac.kr.soundofwind.model.Reply;
+import ac.kr.soundofwind.domain.Reply;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-
-import java.util.Optional;
 
 public interface ReplyRepository extends JpaRepository<Reply, Integer> {
 

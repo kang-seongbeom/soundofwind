@@ -1,6 +1,6 @@
 package ac.kr.soundofwind.config.auth;
 
-import ac.kr.soundofwind.model.User;
+import ac.kr.soundofwind.domain.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

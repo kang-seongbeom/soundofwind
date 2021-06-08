@@ -1,9 +1,10 @@
 package ac.kr.soundofwind;
 
 import ac.kr.soundofwind.config.auth.PrincipalDetailService;
+import ac.kr.soundofwind.controller.api.BoardApiController;
 import ac.kr.soundofwind.controller.api.UserApiController;
-import ac.kr.soundofwind.model.Board;
-import ac.kr.soundofwind.model.Reply;
+import ac.kr.soundofwind.domain.Board;
+import ac.kr.soundofwind.domain.Reply;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.DisplayName;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(UserApiController.class)
+@WebMvcTest(BoardApiController.class)
 public class BoardTest {
 
     @Autowired
@@ -28,7 +29,7 @@ public class BoardTest {
     @DisplayName("게시판 전체 보기 테스트")
     @org.junit.jupiter.api.Test
     public void boardView() throws Exception {
-        this.mockMvc.perform(get("/"))
+        this.mockMvc.perform(get("/board/details"))
                 .andExpect(status().isOk());
     }
 

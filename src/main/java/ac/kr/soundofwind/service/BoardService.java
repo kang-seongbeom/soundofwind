@@ -2,9 +2,8 @@ package ac.kr.soundofwind.service;
 
 
 import ac.kr.soundofwind.dto.RequestReplySaveDto;
-import ac.kr.soundofwind.model.Board;
-import ac.kr.soundofwind.model.Reply;
-import ac.kr.soundofwind.model.User;
+import ac.kr.soundofwind.domain.Board;
+import ac.kr.soundofwind.domain.User;
 import ac.kr.soundofwind.repository.BoardRepository;
 import ac.kr.soundofwind.repository.ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BoardService {

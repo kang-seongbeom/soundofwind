@@ -36,6 +36,9 @@
                         <a class="nav-link" href="/auth/join">회원가입</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/wiki/details">WiKi</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/board/details">게시판</a>
                     </li>
                 </ul>
@@ -48,6 +51,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/user/update">회원정보</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/wiki/details">Wiki</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/board/details">게시판</a>

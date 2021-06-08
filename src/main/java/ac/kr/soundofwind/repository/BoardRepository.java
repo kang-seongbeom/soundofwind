@@ -1,6 +1,6 @@
 package ac.kr.soundofwind.repository;
 
-import ac.kr.soundofwind.model.Board;
+import ac.kr.soundofwind.domain.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
