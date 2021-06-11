@@ -1,9 +1,6 @@
 package ac.kr.soundofwind.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -11,7 +8,8 @@ import java.sql.Timestamp;
 
 //ORM: 객체(ORM)를 테이플로 매핑해 줌
 @Entity(name = "userinfo")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

@@ -47,16 +47,13 @@
             <c:otherwise>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/board/save">글쓰기</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user/update">회원정보</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/wiki/details">Wiki</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/board/details">게시판</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/update">회원정보</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">로그아웃</a>

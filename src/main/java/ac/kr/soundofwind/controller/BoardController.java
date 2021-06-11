@@ -1,7 +1,10 @@
 package ac.kr.soundofwind.controller;
 
+import ac.kr.soundofwind.domain.Board;
+import ac.kr.soundofwind.dto.RequestSearch;
 import ac.kr.soundofwind.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -9,6 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @Controller
 public class BoardController {
@@ -47,4 +54,10 @@ public class BoardController {
         return "/board/updateForm";
     }
 
+    @PostMapping("/api/search/board")
+    public String search(@RequestBody RequestSearch requestSearch, Model model){
+        List<Board> getBoard = boardService.search(requestSearch);
+        model.addAttribute("boards", getBoard);
+        return "redirect:/";
+    }
 }

@@ -33,19 +33,17 @@
 </ul>
 
 <div class="form-group row justify-content-center">
-    <div class="w100" style="padding-right:10px">
-        <select class="form-control form-control-sm" name="searchType" id="searchType">
+    <div style="padding-right:10px">
+        <select id="select_item" class="form-control form-control-sm" name="searchType" id="searchType">
             <option value="title">제목</option>
-            <option value="Content">본문</option>
-            <option value="reg_id">작성자</option>
+            <option value="content">본문</option>
         </select>
     </div>
-    <div class="w300" style="padding-right:10px">
-        <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+    <div style="padding-right:10px">
+        <input id="search_text" type="text" class="form-control form-control-sm" name="keyword">
     </div>
-    <div>
-        <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-    </div>
+    <button class="btn btn-sm btn-primary" id="btn_search">검색</button>
 </div>
 <a href="./saveForm.jsp">게시글 작성하기</a>
+<script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp" %>

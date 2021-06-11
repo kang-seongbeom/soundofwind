@@ -13,7 +13,9 @@ let index = {
         $("#btn_reply_save").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
             this.replySave();
         });
-
+        $("#btn_search").on("click", () => { //this를 바인딩하기 위해서 function대신 화살표를 사용
+            this.search();
+        });
     },
 
     save: function () {
@@ -106,6 +108,27 @@ let index = {
             location.href=`/board/details/${boardId}`;
         }).fail(function (error){
             alert("댓글삭제 실패"+JSON.stringify(error));
+        });
+    },
+
+    search: function (){
+        console.log("tet");
+        let data={
+            item: document.getElementById('select_item').value,
+            text: document.getElementById('search_text').value
+        };
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "/api/search/board",
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function(resp){
+            alert("검색 완료");
+            location.href="/board/details/";
+        }).fail(function (error){
+            alert("검색 실패"+JSON.stringify(error));
         });
     }
 }

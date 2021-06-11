@@ -2,13 +2,17 @@ package ac.kr.soundofwind.controller.api;
 
 import ac.kr.soundofwind.config.auth.PrincipalDetail;
 import ac.kr.soundofwind.dto.RequestReplySaveDto;
+import ac.kr.soundofwind.dto.RequestSearch;
 import ac.kr.soundofwind.dto.ResponseDto;
 import ac.kr.soundofwind.domain.Board;
 import ac.kr.soundofwind.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class BoardApiController {
@@ -53,4 +57,5 @@ public class BoardApiController {
         boardService.deleteReply(replyId);
         return new ResponseDto<Integer>(HttpStatus.OK.value());
     }
+
 }

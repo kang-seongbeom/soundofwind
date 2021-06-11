@@ -4,6 +4,7 @@ package ac.kr.soundofwind.service;
 import ac.kr.soundofwind.dto.RequestReplySaveDto;
 import ac.kr.soundofwind.domain.Board;
 import ac.kr.soundofwind.domain.User;
+import ac.kr.soundofwind.dto.RequestSearch;
 import ac.kr.soundofwind.repository.BoardRepository;
 import ac.kr.soundofwind.repository.ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BoardService {
@@ -64,4 +67,13 @@ public class BoardService {
         replyRepository.deleteById(replyId);
     }
 
+    @Transactional
+    public List<Board> search(RequestSearch requestSearch) {
+        if(requestSearch.getItem().equals("title")){
+            return boardRepository.findAllByTitleLike("%"+requestSearch.getText()+"%");
+        }else if(requestSearch.getItem().equals("content")){
+            return boardRepository.findAllByContentLike("%"+requestSearch.getItem()+"%");
+        }
+        return null;
+    }
 }
