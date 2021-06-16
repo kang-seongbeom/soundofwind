@@ -2,6 +2,7 @@ package ac.kr.soundofwind.repository;
 
 import ac.kr.soundofwind.domain.Board;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,10 +17,7 @@ public interface BoardRepository  extends JpaRepository<Board, Integer> {
     @Query(value = "Update  board Set title = ?1 , content = ?2 WHERE boardId= ?3", nativeQuery = true)
     Optional<Integer> update(String title, String content, Integer id);
 
-    @Query(value = "Select * from board where title like concat('%',:title,'%')", nativeQuery = true)
-    List<Board> searchBoardTitle(@Param("title") String title);
+    Page<Board> findAllByTitleLike(String title, Pageable pageable);
 
-    List<Board> findAllByTitleLike(String title);
-
-    List<Board> findAllByContentLike(String content);
+    Page<Board> findAllByContentLike(String content, Pageable pageable);
 }

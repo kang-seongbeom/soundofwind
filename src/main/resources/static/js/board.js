@@ -117,7 +117,6 @@ let index = {
             item: document.getElementById('select_item').value,
             text: document.getElementById('search_text').value
         };
-        console.log(data);
         $.ajax({
             type: "POST",
             url: "/api/search/board",
@@ -126,7 +125,7 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("검색 완료");
-            location.href="/board/details/";
+            //location.href="/board/details/";
         }).fail(function (error){
             alert("검색 실패"+JSON.stringify(error));
         });

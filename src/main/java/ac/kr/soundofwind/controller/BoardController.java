@@ -55,9 +55,9 @@ public class BoardController {
     }
 
     @PostMapping("/api/search/board")
-    public String search(@RequestBody RequestSearch requestSearch, Model model){
-        List<Board> getBoard = boardService.search(requestSearch);
-        model.addAttribute("boards", getBoard);
-        return "redirect:/";
+    public String search(@RequestBody RequestSearch requestSearch, Model model,
+                         @PageableDefault(size = 3,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("boards", boardService.search(requestSearch, pageable));
+        return "/board/boards";
     }
 }
