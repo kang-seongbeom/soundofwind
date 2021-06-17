@@ -22,8 +22,8 @@
                 <div>${reply.content}</div>
                 <div>
                     <div>작성자:${reply.user.username} &nbsp;</div>
-                    <c:if test="${board.user.id == principal.user.id}">
-                        <button onclick="index.replyDelete(${board.id},${reply.id})">삭제</button>
+                    <c:if test="${reply.user.id == principal.user.id}">
+                        <button class="badge" onclick="index.replyDelete(${board.id},${reply.id})">댓글삭제</button>
                     </c:if>
                 </div>
             </li>
