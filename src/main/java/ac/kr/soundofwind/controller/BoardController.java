@@ -52,7 +52,8 @@ public class BoardController {
     //게시글 작성
     @GetMapping({"/board/save"})
     public String saveForm(){
-        return "board/saveForm";
+        System.out.println("sout");
+        return "/board/saveForm";
     }
 
     //게시글 수정

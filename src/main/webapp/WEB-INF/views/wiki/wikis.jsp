@@ -49,10 +49,10 @@
 </div>
 
 <c:if test="${principal.user.role == 'MANAGER'}">
-    <a href="./saveForm.jsp">게시글 작성하기</a>
+    <a href="/manager/wiki/save">wiki 작성하기</a>
 </c:if>
 <c:if test="${principal.user.role == 'ADMIN'}">
-    <a href="./saveForm.jsp">게시글 작성하기</a>
+    <a href="/manager/wiki/save">wiki 작성하기</a>
 </c:if>
 
 <script src="/js/wiki.js?ver=1"></script>

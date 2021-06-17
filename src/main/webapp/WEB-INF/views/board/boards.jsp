@@ -5,14 +5,12 @@
 
 <c:choose>
     <c:when test="${!empty searchBoards}">
-        <h1 id="test"></h1>
         <c:otherwise>
-            <c:forEach var="board" items="${boards.content}"> <!--boards는 BoardController의 setAttribute에서 정의-->
-                <c:forEach items="${fn:split(${searchBoards})}" var="item">
-                    <c:when test=""></c:when>
-                    
-                </c:forEach>
-            </c:forEach>
+<%--            <c:forEach var="board" items="${boards.content}"> <!--boards는 BoardController의 setAttribute에서 정의-->--%>
+<%--                <c:forEach items="${fn:split(${searchBoards})}" var="item">--%>
+<%--                    <c:when test=""></c:when>--%>
+<%--                </c:forEach>--%>
+<%--            </c:forEach>--%>
         </c:otherwise>
     </c:when>
     <c:otherwise>
@@ -61,6 +59,6 @@
     </div>
     <button class="btn btn-sm btn-primary" id="btn_search">검색</button>
 </div>
-<a href="./saveForm.jsp">게시글 작성하기</a>
+<a href="/board/save">게시글 작성하기</a>
 <script src="/js/board.js"></script>
 <%@ include file="../layout/footer.jsp" %>

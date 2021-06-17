@@ -35,6 +35,7 @@ public class WikiApiController {
     //wiki 삭제
     @DeleteMapping("/api/manager/wiki/{id}")
     public ResponseDto<Integer> delete(@PathVariable Integer id){
+        System.out.println("delete호출");
         wikiService.deleteWiki(id);
         return new ResponseDto<Integer>(HttpStatus.OK.value());
     }

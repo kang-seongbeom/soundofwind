@@ -43,7 +43,7 @@ let index = {
             dataType: "json" //응답이 왔을 때 json javascript로 변환, ajax 통신이 성공하고 서버가json을 리턴하면 dataType이 json이 아니어도 자동으로 자바 오브젝트로 알아서 변환 해 주는거 같음(확실x).
         }).done(function(resp){ //파라미터 resp값은 자바 오브젝트임. json아님
             alert("글쓰기 완료");
-            location.href="/"
+            location.href="/board/details"
         }).fail(function (error){
             alert("글쓰기 실패"+JSON.stringify(error));
         });
@@ -65,7 +65,7 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("글수정 완료");
-            location.href="/"
+            location.href="/board/details"
         }).fail(function (error){
             alert("글수정 실패"+JSON.stringify(error));
         });
@@ -79,7 +79,7 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("게시글 삭제 완료");
-            location.href="/"
+            location.href="/board/details"
         }).fail(function (error){
             alert("게시글 삭제 실패"+JSON.stringify(error));
         });

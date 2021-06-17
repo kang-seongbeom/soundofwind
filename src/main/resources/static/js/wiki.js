@@ -28,7 +28,7 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("wiki 쓰기 완료");
-            location.href="/"
+            location.href="/wiki/details"
         }).fail(function (error){
             alert("wiki 쓰기 실패"+JSON.stringify(error));
         });
@@ -50,7 +50,7 @@ let index = {
             dataType: "json"
         }).done(function(resp){
             alert("wiki 수정 완료");
-            location.href="/"
+            location.href="/wiki/details"
         }).fail(function (error){
             alert("wiki 수정 실패"+JSON.stringify(error));
         });
@@ -60,11 +60,11 @@ let index = {
         let id=document.getElementById('id').innerText;
         $.ajax({
             type: "DELETE",
-            url: "/api/manger/wiki/"+id,
+            url: "/api/manager/wiki/"+id,
             dataType: "json"
         }).done(function(resp){
             alert("wiki 삭제 완료");
-            location.href="/"
+            location.href="/wiki/details"
         }).fail(function (error){
             alert("wiki 삭제 실패"+JSON.stringify(error));
         });
