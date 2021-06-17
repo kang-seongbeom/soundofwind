@@ -17,7 +17,7 @@ public interface BoardRepository  extends JpaRepository<Board, Integer> {
     @Query(value = "Update  board Set title = ?1 , content = ?2 WHERE boardId= ?3", nativeQuery = true)
     Optional<Integer> update(String title, String content, Integer id);
 
-    Page<Board> findAllByTitleLike(String title, Pageable pageable);
+    List<Board> findAllByTitleLike(String title);
 
-    Page<Board> findAllByContentLike(String content, Pageable pageable);
+    List<Board> findAllByContentLike(String content);
 }

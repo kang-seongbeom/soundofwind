@@ -5,13 +5,18 @@ import ac.kr.soundofwind.dto.RequestReplySaveDto;
 import ac.kr.soundofwind.dto.RequestSearch;
 import ac.kr.soundofwind.dto.ResponseDto;
 import ac.kr.soundofwind.domain.Board;
+import ac.kr.soundofwind.dto.ResponseParameterDto;
 import ac.kr.soundofwind.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,6 +33,21 @@ public class BoardApiController {
         boardService.writeApi(board,principalDetail.getUser());
         return new ResponseDto<Integer>(HttpStatus.OK.value());
 
+    }
+
+    //검색
+    @GetMapping("/api/search/board")
+    public ResponseParameterDto search(@RequestParam(value = "item") String item, @RequestParam(value = "text") String text){
+        System.out.println("-----"+item+"/"+text);
+        RequestSearch requestSearch = new RequestSearch(item, text);
+        List<Board> list = boardService.search(requestSearch);
+        Object[] objects = new Object[list.size()];
+        for(int i=0; i<list.size(); i++){
+            System.out.println("id는"+list.get(i).getId());
+            objects[i] += list.get(i).getId()+",";
+        }
+        System.out.println("-----"+objects);
+        return new ResponseParameterDto(objects);
     }
 
     //게시글 수정

@@ -68,11 +68,11 @@ public class BoardService {
     }
 
     @Transactional
-    public Page<Board> search(RequestSearch requestSearch, Pageable pageable) {
+    public List<Board> search(RequestSearch requestSearch) {
         if(requestSearch.getItem().equals("title")){
-            return boardRepository.findAllByTitleLike("%"+requestSearch.getText()+"%", pageable);
+            return boardRepository.findAllByTitleLike("%"+requestSearch.getText()+"%");
         }else if(requestSearch.getItem().equals("content")){
-            return boardRepository.findAllByContentLike("%"+requestSearch.getItem()+"%",pageable);
+            return boardRepository.findAllByContentLike("%"+requestSearch.getItem()+"%");
         }
         return null;
     }

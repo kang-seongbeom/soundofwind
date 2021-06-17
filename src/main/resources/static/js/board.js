@@ -1,3 +1,13 @@
+function dataRefine(resp) {
+    let numOfResp = resp.params.length;
+    let reValue ="";
+    for(let i = 0; i<numOfResp; i++){
+        let str= resp.params[i];
+        reValue += str.replace("null","");
+    }
+    console.log(reValue);
+    return reValue;
+}
 
 let index = {
     init: function () {
@@ -112,20 +122,20 @@ let index = {
     },
 
     search: function (){
-        console.log("tet");
         let data={
             item: document.getElementById('select_item').value,
             text: document.getElementById('search_text').value
         };
         $.ajax({
-            type: "POST",
-            url: "/api/search/board",
-            data: JSON.stringify(data),
+            type: "GET",
+            url: "/api/search/board?item="+data.item+"&text="+data.text,
+            //data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         }).done(function(resp){
-            alert("검색 완료");
-            //location.href="/board/details/";
+            console.log(resp);
+            let getParam = dataRefine(resp);
+            location.href="/board/details/get-boards?boardId="+getParam;
         }).fail(function (error){
             alert("검색 실패"+JSON.stringify(error));
         });
