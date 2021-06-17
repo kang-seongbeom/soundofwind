@@ -34,20 +34,11 @@ public class BoardController {
     }
 
     @GetMapping("/board/details/get-boards")
-    public String returnSearchBoard(@RequestParam(value = "boardId") String boards,
+    public String returnSearchBoard(@RequestParam(value = "boardId") String boardIds,
                                     @PageableDefault(size = 3,sort="id",direction = Sort.Direction.DESC) Pageable pageable,
                                     Model model){
-
-        List<Board> getBoard= new ArrayList<>();
-        String str[] = boards.split(",");
-        if(boards.length()>0) {
-            for (int i = 0; i < str.length; i++) {
-                System.out.println("thisis"+str[i]);
-                getBoard.add(boardService.showDetails(Integer.parseInt(str[i])));
-            }
-        }
-        System.out.println("thisis"+getBoard);
-        model.addAttribute("boards", getBoard);
+        model.addAttribute("searchBoards", boardIds);
+        model.addAttribute("boards", boardService.allBoards(pageable));
         return "/board/boards";
     }
 
