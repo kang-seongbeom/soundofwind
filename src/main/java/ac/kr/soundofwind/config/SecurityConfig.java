@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
 
 @Configuration //빈등록(Ioc관리)
 @EnableWebSecurity //security 필터 등록. 활성화 되어있는 security에서 해당 설정을 이 클래스에서 한다. Controller에 가기 전에 이 클래스에 접근하여 필터링 하게 한다.
@@ -52,7 +53,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .loginPage("/auth/loginForm")
                     .loginProcessingUrl("/auth/loginApi") //security가 해당 주고로 요청오는 로그인을 가로채서 대신함
                     .defaultSuccessUrl("/")
-                    .failureUrl("/auth/loginForm");
+                    .failureUrl("/auth/loginForm")
+                .and()
+                    .exceptionHandling().accessDeniedPage("/error/accessDenied")
+                .and()
+                    .logout()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/")
+                    .invalidateHttpSession(true)
+                    .deleteCookies(AbstractRememberMeServices.SPRING_SECURITY_REMEMBER_ME_COOKIE_KEY);
+
 
     }
 
