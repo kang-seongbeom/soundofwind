@@ -21,7 +21,7 @@ public class WikiController {
     private WikiService wikiService;
 
     @GetMapping("/wiki/details")
-    public String board(Model model, @PageableDefault(size = 3,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
+    public String board(Model model, @PageableDefault(size = 7,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
         model.addAttribute("wikis", wikiService.allWikis(pageable));
         return "/wiki/wikis";
     }

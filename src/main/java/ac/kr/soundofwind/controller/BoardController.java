@@ -28,7 +28,7 @@ public class BoardController {
 
     @GetMapping("/board/details")
     public String board(Model model,
-                        @PageableDefault(size = 3,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
+                        @PageableDefault(size = 7,sort="id",direction = Sort.Direction.DESC) Pageable pageable){
         model.addAttribute("boards", boardService.allBoards(pageable));
         return "/board/boards";
     }

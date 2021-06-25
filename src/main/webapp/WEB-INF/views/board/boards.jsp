@@ -16,8 +16,8 @@
     <c:otherwise>
         <c:forEach var="board" items="${boards.content}"> <!--boards는 BoardController의 setAttribute에서 정의-->
             <div>
-                <h4>${board.title}</h4> <!--board의 gettile이 되어 DB의 정보를 가져옴-->
-                <a href="/board/details/${board.id}">상세보기</a>
+                <h4><a href="/board/details/${board.id}">${board.title}</a></h4>
+                <hr>
             </div>
         </c:forEach>
     </c:otherwise>

@@ -5,8 +5,8 @@
 
 <c:forEach var="wiki" items="${wikis.content}">
     <div>
-        <h4>${wiki.title}</h4>
-        <a href="/wiki/details/${wiki.id}">상세보기</a>
+        <h4><a href="/wiki/details/${wiki.id}">${wiki.title}</a></h4>
+        <hr>
     </div>
 </c:forEach>
 
@@ -48,12 +48,13 @@
     </div>
 </div>
 
-<c:if test="${principal.user.role == 'MANAGER'}">
-    <a href="/manager/wiki/save">wiki 작성하기</a>
-</c:if>
-<c:if test="${principal.user.role == 'ADMIN'}">
-    <a href="/manager/wiki/save">wiki 작성하기</a>
-</c:if>
+<a href="/manager/wiki/save">wiki 작성하기</a>
+<%--<c:if test="${principal.user.role == 'MANAGER'}">--%>
+<%--    <a href="/manager/wiki/save">wiki 작성하기</a>--%>
+<%--</c:if>--%>
+<%--<c:if test="${principal.user.role == 'ADMIN'}">--%>
+<%--    <a href="/manager/wiki/save">wiki 작성하기</a>--%>
+<%--</c:if>--%>
 
 <script src="/js/wiki.js?ver=1"></script>
 
